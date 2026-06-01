@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #1a1d21;
+    --bg-secondary: #23262a;
+    --bg-tertiary: #2a2d32;
+    --accent: #c9a96e;
+    --accent-hover: #d4b87a;
+    --text-primary: #e8e6e3;
+    --text-secondary: #b0aba5;
+    --text-muted: #8b8680;
+    --success: #4caf93;
+    --danger: #c94a4a;
+    --warning: #e6a847;
+    --info: #6b9dc7;
+    --border-subtle: rgba(201, 169, 110, 0.08);
+    --border-medium: rgba(201, 169, 110, 0.15);
+    --border-strong: rgba(201, 169, 110, 0.25);
+    --radius: 0.5rem;
+    --background: 220 10% 11%;
+    --foreground: 40 10% 90%;
+    --card: 220 10% 14%;
+    --card-foreground: 40 10% 90%;
+    --popover: 220 10% 14%;
+    --popover-foreground: 40 10% 90%;
+    --primary: 42 45% 60%;
+    --primary-foreground: 220 10% 11%;
+    --secondary: 220 10% 16%;
+    --secondary-foreground: 40 10% 90%;
+    --muted: 220 10% 16%;
+    --muted-foreground: 30 5% 53%;
+    --accent-hsl: 42 45% 60%;
+    --accent-foreground: 220 10% 11%;
+    --destructive: 0 60% 55%;
+    --destructive-foreground: 40 10% 90%;
+    --border: 42 45% 60% / 0.15;
+    --input: 42 45% 60% / 0.15;
+    --ring: 42 45% 60%;
+    --sidebar-background: 220 10% 11%;
+    --sidebar-foreground: 40 10% 90%;
+    --sidebar-primary: 42 45% 60%;
+    --sidebar-primary-foreground: 220 10% 11%;
+    --sidebar-accent: 220 10% 16%;
+    --sidebar-accent-foreground: 40 10% 90%;
+    --sidebar-border: 42 45% 60% / 0.15;
+    --sidebar-ring: 42 45% 60%;
+  }
+
+  * {
+    @apply border-[hsl(var(--border))];
+  }
+
+  body {
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] antialiased;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  /* ─── Scrollbar ─────────────────────────────────────────────────────────── */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1a1d21;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #3a3d42;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c9a96e;
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #3a3d42 #1a1d21;
+  }
+
+  /* ─── Selection ─────────────────────────────────────────────────────────── */
+  ::selection {
+    background: rgba(201, 169, 110, 0.3);
+    color: #e8e6e3;
+  }
+
+  /* ─── Focus styles ──────────────────────────────────────────────────────── */
+  :focus-visible {
+    outline: 2px solid #c9a96e;
+    outline-offset: 2px;
+  }
+
+  /* ─── Placeholder color ─────────────────────────────────────────────────── */
+  ::placeholder {
+    color: #8b8680;
+    opacity: 0.7;
+  }
+}
+
+@layer components {
+  /* ─── Liquid Glass ──────────────────────────────────────────────────────── */
+  .liquid-glass {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10;
+  }
+
+  .liquid-glass-strong {
+    @apply backdrop-blur-2xl bg-white/[0.07] border border-white/[0.12];
+  }
+
+  /* ─── Gold Gradient Text ────────────────────────────────────────────────── */
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #c9a96e 0%, #e8d5a3 50%, #c9a96e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ─── Card base ─────────────────────────────────────────────────────────── */
+  .card-dark {
+    @apply bg-[#23262a] border border-[rgba(201,169,110,0.08)] rounded-lg;
+  }
+
+  /* ─── Button variants ───────────────────────────────────────────────────── */
+  .btn-gold {
+    @apply px-4 py-2 rounded-lg bg-[#c9a96e] text-[#1a1d21] font-medium hover:bg-[#d4b87a] transition;
+  }
+
+  .btn-gold-outline {
+    @apply px-4 py-2 rounded-lg border border-[#c9a96e] text-[#c9a96e] font-medium hover:bg-[rgba(201,169,110,0.08)] transition;
+  }
+
+  /* ─── Input base ────────────────────────────────────────────────────────── */
+  .input-dark {
+    @apply w-full bg-[#1a1d21] border border-[rgba(201,169,110,0.15)] rounded-lg px-4 py-2.5 text-sm text-[#e8e6e3] placeholder:text-[#8b8680] focus:outline-none focus:border-[#c9a96e] transition;
+  }
+
+  /* ─── Line clamp ────────────────────────────────────────────────────────── */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
